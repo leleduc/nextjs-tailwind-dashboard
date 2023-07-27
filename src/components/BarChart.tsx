@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
-import { Chart, registerables } from 'chart.js';
+import { Chart, registerables, ChartType } from 'chart.js';
 Chart.register(...registerables);
 
 export default function BarChart() {
   React.useEffect(() => {
     // let document: Document;
     let config = {
-      type: 'bar',
+      type: 'bar' as ChartType,
       data: {
         labels: [
           'January',
@@ -97,8 +97,8 @@ export default function BarChart() {
           ],
         },
       },
-    } as ChartConfiguration;
-    
+    };
+
     let ctx = document.getElementById('barChart') as HTMLCanvasElement;
     new Chart(ctx, config);
   }, []);
