@@ -98,7 +98,7 @@ export default function BarChart() {
         },
       },
     };
-    let ctx = document.getElementById('bar-chart').getContext('2d');
+    let ctx = document.getElementById('bar-chart');
     window.myBar = new Chart(ctx, config);
   }, []);
   return (
