@@ -20,7 +20,7 @@ export default function BarChart() {
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: new Date().getFullYear().toString(),
             backgroundColor: '#ed64a6',
             borderColor: '#ed64a6',
             data: [30, 78, 56, 34, 100, 45, 13],
@@ -28,7 +28,7 @@ export default function BarChart() {
             barThickness: 8,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: (new Date().getFullYear() - 1).toString(),
             fill: false,
             backgroundColor: '#4c51bf',
             borderColor: '#4c51bf',
@@ -97,9 +97,10 @@ export default function BarChart() {
           ],
         },
       },
-    };
-    let ctx = document.getElementById('bar-chart');
-    window.myBar = new Chart(ctx, config);
+    } as ChartConfiguration;
+    
+    let ctx = document.getElementById('barChart') as HTMLCanvasElement;
+    new Chart(ctx, config);
   }, []);
   return (
     <>
@@ -120,7 +121,7 @@ export default function BarChart() {
           <div className="p-4 flex-auto">
             {/* Chart */}
             <div className="relative" style={{ height: '350px' }}>
-              <canvas id="bar-chart"></canvas>
+              <canvas id="barChart"></canvas>
             </div>
           </div>
         </div>
