@@ -24,7 +24,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             href="/"
           >
-            Tailwind Starter Kit
+            Nextjs Tailwind Admin
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -92,7 +92,7 @@ export default function Sidebar() {
                   href="/"
                 >
                   <i className="fas fa-newspaper text-blueGray-400 mr-2 text-sm"></i>{' '}
-                  Landing Page
+                  Orders
                 </Link>
               </li>
 
@@ -102,7 +102,7 @@ export default function Sidebar() {
                   href="/"
                 >
                   <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{' '}
-                  Profile Page
+                  Products
                 </Link>
               </li>
 
@@ -112,7 +112,7 @@ export default function Sidebar() {
                   href="/"
                 >
                   <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{' '}
-                  Login
+                  Categories
                 </Link>
               </li>
 
@@ -123,7 +123,7 @@ export default function Sidebar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>{' '}
-                  Register (soon)
+                  Media
                 </a>
               </li>
 
@@ -134,7 +134,7 @@ export default function Sidebar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="fas fa-tools text-blueGray-300 mr-2 text-sm"></i>{' '}
-                  Settings (soon)
+                  Settings
                 </a>
               </li>
             </ul>
@@ -172,16 +172,6 @@ export default function Sidebar() {
                   href="/"
                 >
                   <i className="fab fa-vuejs mr-2 text-blueGray-400 text-base"></i>{' '}
-                  VueJS
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
-                  href="/"
-                >
-                  <i className="fab fa-react mr-2 text-blueGray-400 text-base"></i>{' '}
                   React
                 </Link>
               </li>
@@ -191,8 +181,18 @@ export default function Sidebar() {
                   className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
                   href="/"
                 >
+                  <i className="fab fa-react mr-2 text-blueGray-400 text-base"></i>{' '}
+                  Nextjs
+                </Link>
+              </li>
+
+              <li className="inline-flex">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500  text-sm block mb-4 no-underline font-semibold"
+                  href="/"
+                >
                   <i className="fab fa-angular mr-2 text-blueGray-400 text-base"></i>{' '}
-                  Angular
+                  Database
                 </Link>
               </li>
 

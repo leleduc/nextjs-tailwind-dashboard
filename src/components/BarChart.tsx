@@ -5,6 +5,7 @@ Chart.register(...registerables);
 
 export default function BarChart() {
   React.useEffect(() => {
+    // let document: Document;
     let config = {
       type: 'bar',
       data: {
