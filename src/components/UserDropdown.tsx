@@ -1,16 +1,18 @@
 'use client';
 import React from 'react';
 import { createPopper } from '@popperjs/core';
+import type { StrictModifiers, VirtualElement } from '@popperjs/core';
+import { usePopper } from 'react-popper';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const UserDropdown = () => {
-  // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
+  const btnDropdownRef = React.useRef<HTMLAnchorElement>(null);
+
+  const popoverDropdownRef = React.useRef<HTMLDivElement>(null);
   const openDropdownPopover = () => {
-    createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
+    createPopper(btnDropdownRef.current!, popoverDropdownRef.current!, {
       placement: 'bottom-end',
     });
     setDropdownPopoverShow(true);
