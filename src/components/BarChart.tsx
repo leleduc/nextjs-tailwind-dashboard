@@ -2,11 +2,17 @@
 import React from 'react';
 import { Chart, registerables, ChartType, Color } from 'chart.js/auto';
 Chart.register(...registerables);
+import type { ChartData, ChartOptions } from 'chart.js';
+
+interface LineProps {
+  options: ChartOptions<'bar'>;
+  data: ChartData<'bar'>;
+}
 
 export default function BarChart() {
   React.useEffect(() => {
     // let document: Document;
-    let config = {
+    let config: LineProps = {
       type: 'bar' as ChartType,
       data: {
         labels: [
