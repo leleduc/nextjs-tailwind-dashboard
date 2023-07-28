@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Chart, registerables, ChartType } from 'chart.js';
+import { Chart, registerables, ChartType } from 'chart.js/auto';
 Chart.register(...registerables);
 
 export default function BarChart() {
@@ -20,7 +20,7 @@ export default function BarChart() {
         ],
         datasets: [
           {
-            label: new Date().getFullYear().toString(),
+            label: new Date().getFullYear(),
             backgroundColor: '#ed64a6',
             borderColor: '#ed64a6',
             data: [30, 78, 56, 34, 100, 45, 13],
@@ -28,7 +28,7 @@ export default function BarChart() {
             barThickness: 8,
           },
           {
-            label: (new Date().getFullYear() - 1).toString(),
+            label: new Date().getFullYear() - 1,
             fill: false,
             backgroundColor: '#4c51bf',
             borderColor: '#4c51bf',
@@ -45,11 +45,11 @@ export default function BarChart() {
           text: 'Orders Chart',
         },
         tooltips: {
-          mode: 'index',
+          mode: 'index' as const,
           intersect: false,
         },
         hover: {
-          mode: 'nearest',
+          mode: 'nearest' as const,
           intersect: true,
         },
         legend: {
