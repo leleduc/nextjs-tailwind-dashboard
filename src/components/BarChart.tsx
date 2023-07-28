@@ -3,111 +3,80 @@ import React from 'react';
 import { Chart, registerables, ChartType, Color } from 'chart.js/auto';
 Chart.register(...registerables);
 import type { ChartData, ChartOptions } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
-interface LineProps {
-  options: ChartOptions<'bar'>;
-  data: ChartData<'bar'>;
-}
+const options = {
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+};
+
+// const data = [
+//   {
+//     month: 'January',
+//     value: 30,
+//   },
+//   {
+//     month: 'February',
+//     value: 78,
+//   },
+//   {
+//     month: 'JanMarchuary',
+//     value: 56,
+//   },
+//   {
+//     month: 'April',
+//     value: 34,
+//   },
+//   {
+//     month: 'May',
+//     value: 100,
+//   },
+//   {
+//     month: 'June',
+//     value: 45,
+//   },
+//   {
+//     month: 'July',
+//     value: 13,
+//   },
+// ];
 
 export default function BarChart() {
-  React.useEffect(() => {
-    // let document: Document;
-    let config: LineProps = {
-      type: 'bar' as ChartType,
-      data: {
-        labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-        ],
-        datasets: [
-          {
-            label: new Date().getFullYear(),
-            backgroundColor: '#ed64a6' as Color,
-            borderColor: '#ed64a6' as Color,
-            data: [30, 78, 56, 34, 100, 45, 13],
-            fill: false,
-            barThickness: 8,
-          },
-          {
-            label: new Date().getFullYear() - 1,
-            fill: false,
-            backgroundColor: '#4c51bf' as Color,
-            borderColor: '#4c51bf' as Color,
-            data: [27, 68, 86, 74, 10, 4, 87],
-            barThickness: 8,
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        title: {
-          display: false,
-          text: 'Orders Chart',
-        },
-        tooltips: {
-          mode: 'index' as const,
-          intersect: false,
-        },
-        hover: {
-          mode: 'nearest' as const,
-          intersect: true,
-        },
-        legend: {
-          labels: {
-            fontColor: 'rgba(0,0,0,.4)',
-          },
-          align: 'end',
-          position: 'bottom',
-        },
-        scales: {
-          xAxes: [
-            {
-              display: false,
-              scaleLabel: {
-                display: true,
-                labelString: 'Month',
-              },
-              gridLines: {
-                borderDash: [2],
-                borderDashOffset: [2],
-                color: 'rgba(33, 37, 41, 0.3)',
-                zeroLineColor: 'rgba(33, 37, 41, 0.3)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-          yAxes: [
-            {
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: 'Value',
-              },
-              gridLines: {
-                borderDash: [2],
-                drawBorder: false,
-                borderDashOffset: [2],
-                color: 'rgba(33, 37, 41, 0.2)',
-                zeroLineColor: 'rgba(33, 37, 41, 0.15)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-        },
-      },
-    };
+  const labels: string[] = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+  ];
 
-    let ctx = document.getElementById('barChart') as HTMLCanvasElement;
-    new Chart(ctx, config);
-  }, []);
+  let data = {
+    labels,
+    datasets: [
+      {
+        label: new Date().getFullYear().toString(),
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 0.2)',
+        data: [30, 78, 56, 34, 100, 45, 13],
+        fill: false,
+        barThickness: 8,
+      },
+      {
+        label: (new Date().getFullYear() - 1).toString(),
+        fill: false,
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 0.2)',
+        data: [27, 68, 86, 74, 10, 4, 87],
+        barThickness: 8,
+      },
+    ],
+  };
+
   return (
     <>
       <div className="w-full xl:w-4/12 px-4">
@@ -127,7 +96,8 @@ export default function BarChart() {
           <div className="p-4 flex-auto">
             {/* Chart */}
             <div className="relative" style={{ height: '350px' }}>
-              <canvas id="barChart"></canvas>
+              {/* <canvas id="barChart"></canvas> */}
+              <Bar data={data} options={options} />
             </div>
           </div>
         </div>
