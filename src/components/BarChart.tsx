@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Chart, registerables, ChartType } from 'chart.js/auto';
+import { Chart, registerables, ChartType, Color } from 'chart.js/auto';
 Chart.register(...registerables);
 
 export default function BarChart() {
@@ -21,8 +21,8 @@ export default function BarChart() {
         datasets: [
           {
             label: new Date().getFullYear(),
-            backgroundColor: '#ed64a6',
-            borderColor: '#ed64a6',
+            backgroundColor: '#ed64a6' as Color,
+            borderColor: '#ed64a6' as Color,
             data: [30, 78, 56, 34, 100, 45, 13],
             fill: false,
             barThickness: 8,
@@ -30,8 +30,8 @@ export default function BarChart() {
           {
             label: new Date().getFullYear() - 1,
             fill: false,
-            backgroundColor: '#4c51bf',
-            borderColor: '#4c51bf',
+            backgroundColor: '#4c51bf' as Color,
+            borderColor: '#4c51bf' as Color,
             data: [27, 68, 86, 74, 10, 4, 87],
             barThickness: 8,
           },
